@@ -21,6 +21,27 @@ public class Sprite {
 	public void render(Graphics g) {
 	}
 	
+	/**
+	 * Change the location of the sprite give a direction
+	 * @param direction
+	 */
+	public void move(int direction) {
+		switch (direction) {
+			case 0:
+				y -= 1;
+				break;
+			case 1:
+				y += 1;
+				break;
+			case 2:
+				x -= 1;
+				break;
+			case 3:
+				x += 1;
+				break;
+		}
+	}
+	
 	// Shallow copy of x coordinate
 	public float getX() {
 		return new Float(x);
@@ -31,7 +52,7 @@ public class Sprite {
 		return new Float(y);
 	}
 	
-	// Shallow copy of image
+	// Deep copy of image
 	public Image getImage() {
 		return image;
 	}
