@@ -4,10 +4,10 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 
 public class World {
-	int spriteCount = Loader.countSprites("res/levels/0.lvl");
-	public Sprite[] spriteArray = new Sprite[spriteCount];
-	float offsetX;
-	float offsetY;
+	static int spriteCount = Loader.countSprites("res/levels/0.lvl");
+	private static Sprite[] spriteArray = new Sprite[spriteCount];
+	private float offsetX;
+	private float offsetY;
 	
 	public World() throws SlickException {
 		spriteArray = Loader.loadSprites("res/levels/0.lvl");
@@ -29,5 +29,9 @@ public class World {
 					spriteArray[i].getX() * App.TILE_SIZE + offsetX,
 					spriteArray[i].getY() * App.TILE_SIZE + offsetY);
 		}
+	}
+	
+	public static Sprite[] getAllSprites() {
+		return spriteArray;
 	}
 }

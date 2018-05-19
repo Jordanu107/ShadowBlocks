@@ -9,9 +9,14 @@ public class Loader {
 	
 	// Converts a world coordinate to a tile coordinate,
 	// and returns if that location is a blocked tile
-	public static boolean isBlocked(float x, float y) {
-		// Default to blocked
-		return true;
+	public static boolean isBlocked(float x, float y, Sprite[] sprites) {
+		for (int i=0; i<World.spriteCount; i++) {
+			if (sprites[i].getX() == x && sprites[i].getY() == y &&
+					sprites[i].getType().equals("res/wall.png")) {
+				return true;
+			}
+		}
+		return false;
 	}
 		
 	/**

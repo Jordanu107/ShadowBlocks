@@ -28,16 +28,24 @@ public class Sprite {
 	public void move(int direction) {
 		switch (direction) {
 			case 0:
-				y -= 1;
+				if(!Loader.isBlocked(x, y-1, World.getAllSprites())) {
+					y -= 1;
+				}
 				break;
 			case 1:
-				y += 1;
+				if(!Loader.isBlocked(x, y+1, World.getAllSprites())) {
+					y += 1;
+				}
 				break;
 			case 2:
-				x -= 1;
+				if(!Loader.isBlocked(x-1, y, World.getAllSprites())) {
+					x -= 1;
+				}
 				break;
 			case 3:
-				x += 1;
+				if(!Loader.isBlocked(x+1, y, World.getAllSprites())) {
+					x += 1;
+				}
 				break;
 		}
 	}
@@ -55,5 +63,9 @@ public class Sprite {
 	// Deep copy of image
 	public Image getImage() {
 		return image;
+	}
+	
+	public String getType() {
+		return new String(image_src);
 	}
 }
