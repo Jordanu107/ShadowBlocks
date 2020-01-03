@@ -1,4 +1,8 @@
-.metadata/*.*
+.metadata/
+.idea/
+out/
+bin/
+
 .project
-bin/*.*
 .classpath
+*.iml
