@@ -47,6 +47,7 @@ public class Loader {
 			} catch (Exception e) {
 			    e.printStackTrace();
 			}
+//			System.out.println("Done");
 		return spriteArray;
 	}
 	
@@ -70,6 +71,22 @@ public class Loader {
 				return new Target("res/target.png", x, y);
 			case "floor":
 				return new Floor("res/floor.png", x, y);
+			case "cracked":
+				return new CrackedWall("res/cracked_wall.png", x, y);
+			case "tnt":
+				return new TNT("res/tnt.png", x, y);
+			case "ice":
+				return new Ice("res/ice.png", x, y);
+			case "switch":
+				return new Switch("res/switch.png", x, y);
+			case "door":
+				return new Door("res/door.png", x, y);
+			case "rogue":
+				return new Rogue("res/rogue.png", x, y);
+			case "mage":
+				return new Mage("res/mage.png", x, y);
+			case "skeleton":
+				return new Skeleton("res/skull.png", x, y);
 		}
 		return null;
 	}

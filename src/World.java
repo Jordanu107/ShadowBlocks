@@ -4,13 +4,14 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 
 public class World {
-	static int spriteCount = Loader.countSprites("res/levels/0.lvl");
+	private static String filename = "res/levels/3.lvl";
+	static int spriteCount = Loader.countSprites(filename);
 	private static Sprite[] spriteArray = new Sprite[spriteCount];
 	private float offsetX;
 	private float offsetY;
 	
 	public World() throws SlickException {
-		spriteArray = Loader.loadSprites("res/levels/0.lvl");
+		spriteArray = Loader.loadSprites(filename);
 		
 		// Offset coordinates to achieve a centered map
 		offsetX = (float) (App.SCREEN_WIDTH / 2.0 - (Loader.xCoord / 2.0) * App.TILE_SIZE);

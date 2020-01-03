@@ -15,8 +15,7 @@ import org.newdawn.slick.Input;
  * Main class for the game.
  * Handles initialisation, input and rendering.
  */
-public class App extends BasicGame
-{
+public class App extends BasicGame {
  	/** screen width, in pixels */
     public static final int SCREEN_WIDTH = 800;
     /** screen height, in pixels */
@@ -26,15 +25,13 @@ public class App extends BasicGame
     
     private World world;
 
-    public App()
-    {    	
+    public App() {
         super("Shadow Blocks");
     }
 
     @Override
     public void init(GameContainer gc)
-    throws SlickException
-    {
+    throws SlickException {
     	world = new World();
     }
 
@@ -56,8 +53,7 @@ public class App extends BasicGame
      * @param g The Slick graphics object, used for drawing.
      */
     public void render(GameContainer gc, Graphics g)
-    throws SlickException
-    {
+    throws SlickException {
     	world.render(g);
     }
 
