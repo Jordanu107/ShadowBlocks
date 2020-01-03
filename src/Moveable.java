@@ -9,28 +9,35 @@ public class Moveable extends Sprite {
      * Change the location of the moveable sprite given a direction
      * @param direction - direction of motion
      */
-    public void move(int direction) {
+    public int move(int direction) {
+        int hasMoved = 0;
         switch (direction) {
             case 0:
-                if(!Loader.isBlocked(this.getX(), this.getY() - 1, World.getAllSprites())) {
+                if(!Loader.isBlocked(this.getX(), this.getY() - 1, direction, World.getAllSprites())) {
                     setY(this.getY() - 1);
+                    hasMoved = 1;
                 }
-                break;
+                return hasMoved;
             case 1:
-                if(!Loader.isBlocked(this.getX(), this.getY() + 1, World.getAllSprites())) {
+                if(!Loader.isBlocked(this.getX(), this.getY() + 1, direction, World.getAllSprites())) {
                     setY(this.getY() + 1);
+                    hasMoved = 1;
                 }
-                break;
+                return hasMoved;
             case 2:
-                if(!Loader.isBlocked(this.getX() - 1, this.getY(), World.getAllSprites())) {
+                if(!Loader.isBlocked(this.getX() - 1, this.getY(), direction, World.getAllSprites())) {
                     setX(this.getX() - 1);
+                    hasMoved = 1;
                 }
-                break;
+                return hasMoved;
             case 3:
-                if(!Loader.isBlocked(this.getX() + 1, this.getY(), World.getAllSprites())) {
+                if(!Loader.isBlocked(this.getX() + 1, this.getY(), direction, World.getAllSprites())) {
                     setX(this.getX() + 1);
+                    hasMoved = 1;
                 }
-                break;
+                return hasMoved;
+            default:
+                return hasMoved;
         }
     }
 }
