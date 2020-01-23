@@ -1,13 +1,13 @@
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 
-public class Player extends Sprite {
+
+public class Player extends Moveable {
 
 	public Player(String image_src, int x, int y) throws SlickException {
 		super(image_src, x, y);
-		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	public void update(Input input, int delta) {
 		if (input.isKeyPressed(input.KEY_UP)) {
@@ -21,6 +21,10 @@ public class Player extends Sprite {
 		}
 		if (input.isKeyPressed(input.KEY_RIGHT)) {
 			move(3);
+		}
+		// Exit game
+		if (input.isKeyPressed(input.KEY_R)) {
+			System.exit(0);
 		}
 	}
 }

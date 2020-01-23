@@ -8,6 +8,7 @@ public class Sprite {
 	private float y;
 	private String image_src;
 	private Image image;
+
 	public Sprite(String image_src, float x, float y) throws SlickException {
 		this.image_src = image_src;
 		this.x = x;
@@ -21,35 +22,6 @@ public class Sprite {
 	public void render(Graphics g) {
 	}
 	
-	/**
-	 * Change the location of the sprite give a direction
-	 * @param direction
-	 */
-	public void move(int direction) {
-		switch (direction) {
-			case 0:
-				if(!Loader.isBlocked(x, y-1, World.getAllSprites())) {
-					y -= 1;
-				}
-				break;
-			case 1:
-				if(!Loader.isBlocked(x, y+1, World.getAllSprites())) {
-					y += 1;
-				}
-				break;
-			case 2:
-				if(!Loader.isBlocked(x-1, y, World.getAllSprites())) {
-					x -= 1;
-				}
-				break;
-			case 3:
-				if(!Loader.isBlocked(x+1, y, World.getAllSprites())) {
-					x += 1;
-				}
-				break;
-		}
-	}
-	
 	// Shallow copy of x coordinate
 	public float getX() {
 		return new Float(x);
@@ -58,6 +30,14 @@ public class Sprite {
 	// Shallow copy of y coordinate
 	public float getY() {
 		return new Float(y);
+	}
+
+	public void setX(float x) {
+		this.x = x;
+	}
+
+	public void setY(float y) {
+		this.y = y;
 	}
 	
 	// Deep copy of image
