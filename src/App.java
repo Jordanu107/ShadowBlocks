@@ -30,8 +30,7 @@ public class App extends BasicGame {
     }
 
     @Override
-    public void init(GameContainer gc)
-    throws SlickException {
+    public void init(GameContainer gc) throws SlickException {
     	world = new World();
     }
 
@@ -40,9 +39,7 @@ public class App extends BasicGame {
      * @param delta Time passed since last frame (milliseconds).
      */
     @Override
-    public void update(GameContainer gc, int delta)
-    throws SlickException
-    {
+    public void update(GameContainer gc, int delta) throws SlickException {
         // Get data about the current input (keyboard state).
         Input input = gc.getInput();
         world.update(input, delta);
@@ -52,22 +49,18 @@ public class App extends BasicGame {
      * @param gc The Slick game container object.
      * @param g The Slick graphics object, used for drawing.
      */
-    public void render(GameContainer gc, Graphics g)
-    throws SlickException {
+    public void render(GameContainer gc, Graphics g) throws SlickException {
     	world.render(g);
     }
 
     /** Start-up method. Creates the game and runs it.
      * @param args Command-line arguments (ignored).
      */
-    public static void main(String[] args)
-    throws SlickException
-    {
+    public static void main(String[] args) throws SlickException {
         AppGameContainer app = new AppGameContainer(new App());
         // setShowFPS(true), to show frames-per-second.
         app.setShowFPS(false);
         app.setDisplayMode(SCREEN_WIDTH, SCREEN_HEIGHT, false);
         app.start();
     }
-
 }
