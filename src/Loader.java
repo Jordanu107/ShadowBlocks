@@ -15,11 +15,21 @@ public class Loader {
 			// Found the sprite that is currently in that position
 			if (sprite.getX() == x && sprite.getY() == y) {
 				switch (sprite.getType()) {
-					case "res/wall.png":
 					case "res/cracked_wall.png":
+						// Check if it's the TNT that's colliding with it
+						for (Sprite newSprite : sprites) {
+							if (newSprite.getType().equals("res/tnt.png")
+									&& newSprite.getX() == x
+									&& newSprite.getY() == y - 1) {
+								sprites.remove(sprite);
+								sprites.remove(newSprite);
+								return false;
+							}
+						}
+					case "res/wall.png":
 						return true;
-					case "res/stone.png":
 					case "res/tnt.png":
+					case "res/stone.png":
 						return ((Moveable) sprite).move(direction) == 0;
 				}
 			}
