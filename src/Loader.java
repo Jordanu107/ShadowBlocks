@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -15,14 +16,11 @@ public class Loader {
 			if (sprite.getX() == x && sprite.getY() == y) {
 				switch (sprite.getType()) {
 					case "res/wall.png":
-						System.out.println("Wall");
+					case "res/cracked_wall.png":
 						return true;
 					case "res/stone.png":
-						System.out.println("Stone");
+					case "res/tnt.png":
 						return ((Moveable) sprite).move(direction) == 0;
-					default:
-						System.out.println("Unsure");
-
 				}
 			}
 		}
@@ -56,6 +54,21 @@ public class Loader {
 			    e.printStackTrace();
 			}
 		return spriteArray;
+	}
+
+	/**
+	 * Finds all the coordinates of the targets in a given level
+	 * @param spriteArrayList - list of sprites in world
+	 * @return - An arraylist of Points of each of the targets
+	 */
+	public static ArrayList<Point> findTargets(ArrayList<Sprite> spriteArrayList) {
+		ArrayList<Point> targets = new ArrayList<>();
+		for (Sprite sprite : spriteArrayList) {
+			if (sprite.getType().equals("res/target.png")) {
+				targets.add(new Point((int) sprite.getX(), (int) sprite.getY()));
+			}
+		}
+		return targets;
 	}
 	
 	/**
