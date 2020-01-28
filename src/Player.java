@@ -22,9 +22,5 @@ public class Player extends Moveable {
 		if (input.isKeyPressed(input.KEY_RIGHT)) {
 			move(3);
 		}
-		// Exit game
-		if (input.isKeyPressed(input.KEY_R)) {
-			System.exit(0);
-		}
 	}
 }
