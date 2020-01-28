@@ -18,7 +18,7 @@ public class Sprite {
 	
 	public void update(Input input, int delta) {
 	}
-	
+
 	public void render(Graphics g) {
 	}
 	
@@ -44,7 +44,11 @@ public class Sprite {
 	public Image getImage() {
 		return image;
 	}
-	
+
+	/**
+	 * Gives a string representation of the Sprite
+	 * @return - the unique image source of a given sprite
+	 */
 	public String getType() {
 		return new String(image_src);
 	}
